@@ -1,0 +1,15 @@
+<article class="card mb-3">
+    <div class="px-3 py-2 post-card">
+        <h5>
+            {{post?.name}}
+        </h5>
+        <p>
+            {{post?.body}}
+        </p>
+         <div class="text-end">
+            <span (click)="likePost(post)" class="heart">
+                💗 {{post?.like}}
+            </span>
+         </div>
+    </div>
+</article>
