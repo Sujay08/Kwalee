@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 class PostService {
     constructor(http) {
         this.http = http;
-        this.dataUrl = '../assets/posts.json';
+        this.dataUrl = 'assets/posts.json';
     }
     getData() {
         return this.http.get(this.dataUrl);

@@ -4,10 +4,10 @@ import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
-})
+}) 
 export class PostService {
   
-  private dataUrl = '../assets/posts.json';
+  private dataUrl = 'assets/posts.json';
 
   constructor(private http: HttpClient) { }
 
