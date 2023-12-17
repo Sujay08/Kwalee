@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PostService {
   
-  private dataUrl = '../../assets/posts.json';
+  private dataUrl = '../assets/posts.json';
 
   constructor(private http: HttpClient) { }
 
