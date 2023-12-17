@@ -188,6 +188,8 @@ class PostFormComponent {
         let postObject = {
             "postId": 0,
             "id": "",
+            "like": 0,
+            "isLiked": 0,
             "name": "You",
             "body": formData.postBody
         };
@@ -320,12 +322,17 @@ class AppComponent {
     }
     receivePost(event) {
         console.log(event);
+        let postType;
         if (this.currentTab == 'static') {
-            this.allStaticPosts.push(event);
+            postType = this.allStaticPosts;
         }
         else {
-            this.allDynamicPosts.push(event);
+            postType = this.allDynamicPosts;
         }
+        let lastElement = postType[postType.length - 1];
+        let newID = lastElement.id + 1;
+        event.id = newID;
+        postType.push(event);
     }
     changeTab(e) {
         this.currentTab = e;
@@ -335,7 +342,7 @@ class AppComponent {
             let posts = result;
             posts.forEach((p) => {
                 p.isLiked = 0;
-                p.like = Math.floor(Math.random());
+                p.like = Math.floor(Math.random() * 10);
             });
             this.allDynamicPosts = JSON.parse(JSON.stringify(result));
         });

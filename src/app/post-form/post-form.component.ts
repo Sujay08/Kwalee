@@ -27,30 +27,32 @@ export class PostFormComponent implements OnInit {
     return this.formGroup.controls;
   }
 
-  initForm(){
+  initForm() {
     this.formGroup = this.fb.group({
       postBody: new FormControl("", [Validators.required])
     })
   }
-  
-  
+
+
 
   submitted = false;
 
-  onSubmit(formData){
+  onSubmit(formData) {
 
-      this.submitted = true;
-  
-      if (this.formGroup.invalid) {
-        return;
-      }
+    this.submitted = true;
+
+    if (this.formGroup.invalid) {
+      return;
+    }
     let postObject = {
       "postId": 0,
       "id": "",
+      "like": 0,
+      "isLiked": 0,
       "name": "You",
       "body": formData.postBody
     }
-    
+
     this.sendPosts(postObject)
   }
 
